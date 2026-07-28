@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Page 1 Saved Data</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f2f2f2;
+margin:0;
+padding:20px;
+}
+
+h2{
+text-align:center;
+color:#0066cc;
+}
+
+.card{
+background:white;
+padding:15px;
+margin:15px auto;
+max-width:600px;
+border-radius:10px;
+box-shadow:0 0 8px gray;
+}
+
+button{
+padding:10px 15px;
+margin:5px;
+border:none;
+color:white;
+cursor:pointer;
+border-radius:5px;
+}
+
+.delete{
+background:red;
+}
+
+.clear{
+background:black;
+}
+
+.back{
+background:#007bff;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Page 1 Saved Data</h2>
+
+<div style="text-align:center;">
+
+<button class="back" onclick="location.href='file:///C:/Users/shahi/Desktop/form.html'">
+Add New
+</button>
+
+<button class="clear" onclick="clearAll()">
+Delete All
+</button>
+
+</div>
+
+<div id="result"></div>
+
+<script>
+
+function loadData(){
+
+let data=JSON.parse(localStorage.getItem("page1_data"))||[];
+
+let output="";
+
+if(data.length==0){
+output="<h3 style='text-align:center;'>No Data Saved</h3>";
+}
+
+for(let i=0;i<data.length;i++){
+
+output+=`
+<div class="card">
+
+<h3>Record ${i+1}</h3>
+
+<p><b>Name:</b> ${data[i].name}</p>
+
+<p><b>Address:</b> ${data[i].address}</p>
+
+<p><b>Tk:</b> ${data[i].tk}</p>
+
+<p><b>Date:</b> ${data[i].date}</p>
+
+<button class="delete" onclick="deleteOne(${i})">
+Delete
+</button>
+
+</div>
+`;
+
+}
+
+document.getElementById("result").innerHTML=output;
+
+}
+
+function deleteOne(index){
+
+let data=JSON.parse(localStorage.getItem("page1_data"))||[];
+
+data.splice(index,1);
+
+localStorage.setItem("page1_data",JSON.stringify(data));
+
+loadData();
+
+}
+
+function clearAll(){
+
+if(confirm("সব ডাটা ডিলিট করবেন?")){
+
+localStorage.removeItem("page1_data");
+
+loadData();
+
+}
+
+}
+
+loadData();
+
+</script>
+
+</body>
+</html>
