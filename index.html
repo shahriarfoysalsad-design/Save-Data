@@ -1,152 +1,691 @@
-
-
 <!DOCTYPE html>
-<html>
+<html lang="bn">
 <head>
-    <meta name="viewport"
-    content="width=device-width,
-    initial-scale=1">
-<meta charset="UTF-8">
-<title>Page 1 Saved Data</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>সাদ মাল্টি ট্রেডার্স</title>
 
-body{
-font-family:Arial;
-background:#f2f2f2;
-margin:0;
-padding:20px;
-}
+    <meta name="description" content="সাদ মাল্টি ট্রেডার্স - সুপারি ও পানের মসলা সরবরাহকারী একটি বিশ্বস্ত প্রতিষ্ঠান।">
+    <meta name="keywords" content="সাদ মাল্টি ট্রেডার্স, সুপারি, পানের মসলা, সুপারি ব্যবসা, পানের মসলা বাংলাদেশ">
 
-h2{
-text-align:center;
-color:#0066cc;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-.card{
-background:white;
-padding:15px;
-margin:15px auto;
-max-width:600px;
-border-radius:10px;
-box-shadow:0 0 8px gray;
-}
+        body {
+            font-family: Arial, "Noto Sans Bengali", sans-serif;
+            background: #f5f7f5;
+            color: #222;
+            overflow-x: hidden;
+        }
 
-button{
-padding:10px 15px;
-margin:5px;
-border:none;
-color:white;
-cursor:pointer;
-border-radius:5px;
-}
+        /* ================= HEADER ================= */
 
-.delete{
-background:red;
-}
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 75px;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            z-index: 9999;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
 
-.clear{
-background:black;
-}
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #126b35;
+            text-decoration: none;
+        }
 
-.back{
-background:#007bff;
-}
+        .logo span {
+            color: #e19b19;
+        }
 
-</style>
+        /* ================= MENU ================= */
 
+        .menu {
+            display: flex;
+            gap: 10px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #222;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 17px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            background: #126b35;
+            color: white;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #126b35;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 100vh;
+            padding: 150px 8% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(
+                    rgba(5, 70, 35, 0.88),
+                    rgba(5, 70, 35, 0.88)
+                ),
+                linear-gradient(135deg, #126b35, #0b4925);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            animation: heroIn 1.2s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 75px);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: #f0bd45;
+        }
+
+        .hero p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #f1f1f1;
+            margin-bottom: 30px;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: #f0bd45;
+            color: #173b23;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-4px);
+            background: white;
+        }
+
+        /* ================= SECTION ================= */
+
+        section {
+            padding: 100px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            color: #126b35;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .products {
+            background: white;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: #f8faf8;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 18px;
+            border: 1px solid #e5e5e5;
+            transition: 0.4s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.10);
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            color: #126b35;
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            background: #eef5ef;
+        }
+
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-box h2 {
+            color: #126b35;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about-box p {
+            font-size: 18px;
+            line-height: 2;
+            color: #555;
+        }
+
+        /* ================= QUALITY ================= */
+
+        .quality {
+            background: white;
+        }
+
+        .quality-grid {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .quality-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 18px;
+            background: #f7faf7;
+        }
+
+        .quality-box h3 {
+            margin: 15px 0 10px;
+            color: #126b35;
+        }
+
+        .quality-box p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background:
+                linear-gradient(
+                    rgba(18,107,53,0.94),
+                    rgba(18,107,53,0.94)
+                );
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: auto;
+            color: #e8e8e8;
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 14px 32px;
+            background: #f0bd45;
+            color: #173b23;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #092d19;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* ================= SCROLL ANIMATION ================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 0.9s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes heroIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            header {
+                height: 65px;
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 20px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .menu {
+                position: absolute;
+                top: 65px;
+                right: 5%;
+                width: 180px;
+                background: white;
+                display: none;
+                flex-direction: column;
+                padding: 10px;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            }
+
+            .menu.show {
+                display: flex;
+            }
+
+            .menu a {
+                text-align: center;
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 120px 6% 70px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 75px 6%;
+            }
+
+            .section-title h2,
+            .about-box h2,
+            .contact h2 {
+                font-size: 30px;
+            }
+
+            .product-grid,
+            .quality-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<h2>Page 1 Saved Data</h2>
+    <!-- ================= HEADER ================= -->
 
-<div style="text-align:center;">
+    <header>
 
-<button class="back" onclick="location.href=' https://shahriarfoysalsad-design.github.io/Form/'">
-Add New
-</button>
+        <a href="#home" class="logo">
+            সাদ <span>মাল্টি ট্রেডার্স</span>
+        </a>
 
-<button class="clear" onclick="clearAll()">
-Delete All
-</button>
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<button class="back" onclick="location.href=' https://shahriarfoysalsad-design.github.io/Form/'">
-Back
-</button>
+        <nav class="menu" id="menu">
 
-</div>
+            <a href="#home" onclick="closeMenu()">Home</a>
 
-<div id="result"></div>
+            <a href="#contact" onclick="closeMenu()">Contact</a>
 
-<script>
+            <a href="#about" onclick="closeMenu()">About</a>
 
-function loadData(){
+        </nav>
 
-let data=JSON.parse(localStorage.getItem("page1_data"))||[];
+    </header>
 
-let output="";
 
-if(data.length==0){
-output="<h3 style='text-align:center;'>No Data Saved</h3>";
-}
+    <!-- ================= HOME ================= -->
 
-for(let i=0;i<data.length;i++){
+    <section class="hero" id="home">
 
-output+=`
-<div class="card">
+        <div class="hero-content">
 
-<h3>Record ${i+1}</h3>
+            <h1>
+                সাদ <span>মাল্টি ট্রেডার্স</span>
+            </h1>
 
-<p><b>Name:</b> ${data[i].name}</p>
+            <p>
+                মানসম্মত সুপারি ও পানের মসলা নিয়ে
+                আপনার ব্যবসার বিশ্বস্ত সহযোগী।
+                গুণমান, সততা ও নির্ভরযোগ্যতার সাথে
+                আমরা এগিয়ে যেতে চাই।
+            </p>
 
-<p><b>Address:</b> ${data[i].address}</p>
+            <a href="#about" class="hero-btn">
+                আমাদের সম্পর্কে
+            </a>
 
-<p><b>Tk:</b> ${data[i].tk}</p>
+        </div>
 
-<p><b>Date:</b> ${data[i].date}</p>
+    </section>
 
-<button class="delete" onclick="deleteOne(${i})">
-Delete
-</button>
 
-</div>
-`;
+    <!-- ================= PRODUCTS ================= -->
 
-}
+    <section class="products">
 
-document.getElementById("result").innerHTML=output;
+        <div class="section-title reveal">
 
-}
+            <h2>আমাদের পণ্য</h2>
 
-function deleteOne(index){
+            <p>
+                আপনার প্রয়োজন অনুযায়ী মানসম্মত পণ্য সরবরাহে আমরা প্রতিশ্রুতিবদ্ধ।
+            </p>
 
-let data=JSON.parse(localStorage.getItem("page1_data"))||[];
+        </div>
 
-data.splice(index,1);
 
-localStorage.setItem("page1_data",JSON.stringify(data));
+        <div class="product-grid">
 
-loadData();
+            <div class="card reveal">
 
-}
+                <div class="icon">🌿</div>
 
-function clearAll(){
+                <h3>সুপারি</h3>
 
-if(confirm("সব ডাটা ডিলিট করবেন?")){
+                <p>
+                    বাছাইকৃত ও মানসম্মত সুপারি
+                    সরবরাহের মাধ্যমে ক্রেতাদের
+                    সন্তুষ্টি নিশ্চিত করার চেষ্টা করি।
+                </p>
 
-localStorage.removeItem("page1_data");
+            </div>
 
-loadData();
 
-}
+            <div class="card reveal">
 
-}
+                <div class="icon">🍃</div>
 
-loadData();
+                <h3>পানের মসলা</h3>
 
-</script>
+                <p>
+                    পানের জন্য প্রয়োজনীয় বিভিন্ন
+                    ধরনের মসলা ও উপকরণ
+                    মান বজায় রেখে সরবরাহ করা হয়।
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="icon">📦</div>
+
+                <h3>পাইকারি সরবরাহ</h3>
+
+                <p>
+                    ব্যবসায়ীদের প্রয়োজন অনুযায়ী
+                    নিয়মিত ও নির্ভরযোগ্যভাবে
+                    পণ্য সরবরাহের ব্যবস্থা।
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="about-box reveal">
+
+            <h2>সাদ মাল্টি ট্রেডার্স সম্পর্কে</h2>
+
+            <p>
+                সাদ মাল্টি ট্রেডার্স একটি ব্যবসায়িক প্রতিষ্ঠান,
+                যেখানে সুপারি ও পানের মসলা সহ প্রয়োজনীয়
+                পণ্য মানসম্মতভাবে সরবরাহের প্রতি গুরুত্ব দেওয়া হয়।
+                আমাদের লক্ষ্য হলো ভালো পণ্য, ন্যায্য মূল্য এবং
+                বিশ্বস্ত সেবার মাধ্যমে ক্রেতাদের আস্থা অর্জন করা।
+            </p>
+
+            <br>
+
+            <p>
+                ব্যবসায়িক সম্পর্ককে দীর্ঘস্থায়ী করার জন্য
+                আমরা গুণমান, সততা এবং দায়িত্বশীলতাকে
+                সর্বোচ্চ গুরুত্ব দিয়ে থাকি।
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= QUALITY ================= -->
+
+    <section class="quality">
+
+        <div class="section-title reveal">
+
+            <h2>কেন আমাদের সাথে?</h2>
+
+            <p>
+                আমাদের ব্যবসার মূল ভিত্তি হলো ক্রেতার সন্তুষ্টি।
+            </p>
+
+        </div>
+
+
+        <div class="quality-grid">
+
+            <div class="quality-box reveal">
+
+                <div class="icon">⭐</div>
+
+                <h3>মানসম্মত পণ্য</h3>
+
+                <p>
+                    পণ্যের মান বজায় রাখাকে আমরা সর্বোচ্চ গুরুত্ব দিই।
+                </p>
+
+            </div>
+
+
+            <div class="quality-box reveal">
+
+                <div class="icon">🤝</div>
+
+                <h3>বিশ্বস্ত সেবা</h3>
+
+                <p>
+                    ক্রেতাদের সাথে দীর্ঘমেয়াদি ও বিশ্বস্ত সম্পর্ক গড়ে তোলা আমাদের লক্ষ্য।
+                </p>
+
+            </div>
+
+
+            <div class="quality-box reveal">
+
+                <div class="icon">💼</div>
+
+                <h3>ব্যবসায়িক সহযোগিতা</h3>
+
+                <p>
+                    ব্যবসায়ীদের প্রয়োজন অনুযায়ী পণ্য সরবরাহে আমরা গুরুত্ব দিই।
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="reveal">
+
+            <h2>যোগাযোগ করুন</h2>
+
+            <p>
+                সাদ মাল্টি ট্রেডার্সের পণ্য ও ব্যবসায়িক
+                যোগাযোগ সম্পর্কে জানতে আমাদের সাথে
+                যোগাযোগ করতে পারেন।
+            </p>
+
+            <a href="tel:+8801723277322" class="contact-button">
+                Contact Us
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 সাদ মাল্টি ট্রেডার্স — All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* Menu Open / Close */
+
+        function toggleMenu() {
+
+            document.getElementById("menu").classList.toggle("show");
+
+        }
+
+        function closeMenu() {
+
+            document.getElementById("menu").classList.remove("show");
+
+        }
+
+
+        /* Scroll Animation */
+
+        const reveals = document.querySelectorAll(".reveal");
+
+        function revealOnScroll() {
+
+            const windowHeight = window.innerHeight;
+
+            reveals.forEach(function(element) {
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+
+                    element.classList.add("active");
+
+                }
+
+            });
+
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        revealOnScroll();
+
+    </script>
 
 </body>
 </html>
-
