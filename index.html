@@ -1,848 +1,281 @@
+
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>সাদ মাল্টি ট্রেডার্স</title>
-
-<meta name="description" content="সাদ মাল্টি ট্রেডার্স - মানসম্মত পণ্য ও বিশ্বস্ত সেবার একটি প্রতিষ্ঠান।">
+<meta name="theme-color" content="#101827">
+<title>SFS Tuition Tracker</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Arial,"Noto Sans Bengali",sans-serif;
-    background:#f5f7f5;
-    color:#222;
-    overflow-x:hidden;
-}
-
-/* ================= HEADER ================= */
-
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:75px;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(10px);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 7%;
-    z-index:9999;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:#126b35;
-    font-size:23px;
-    font-weight:bold;
-}
-
-.logo-icon{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    background:linear-gradient(135deg,#126b35,#063c1d);
-    color:#f2c23d;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:15px;
-    font-weight:900;
-    border:3px solid #e5b52f;
-}
-
-.menu{
-    display:flex;
-    gap:8px;
-}
-
-.menu a{
-    text-decoration:none;
-    color:#222;
-    font-size:16px;
-    font-weight:bold;
-    padding:10px 17px;
-    border-radius:25px;
-    transition:.3s;
-}
-
-.menu a:hover{
-    background:#126b35;
-    color:white;
-}
-
-.menu-btn{
-    display:none;
-    font-size:30px;
-    cursor:pointer;
-    color:#126b35;
-}
-
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:100vh;
-    padding:150px 8% 80px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    background:
-    linear-gradient(
-        rgba(5,70,35,.90),
-        rgba(5,70,35,.90)
-    ),
-    linear-gradient(135deg,#126b35,#0b4925);
-    color:white;
-}
-
-.hero-content{
-    max-width:850px;
-}
-
-.hero h1{
-    font-size:clamp(40px,7vw,75px);
-    margin-bottom:20px;
-    font-weight:800;
-}
-
-.hero h1 span{
-    color:#f0bd45;
-}
-
-.hero p{
-    font-size:20px;
-    line-height:1.8;
-    color:#f1f1f1;
-    margin-bottom:30px;
-}
-
-.hero-btn{
-    display:inline-block;
-    padding:14px 30px;
-    background:#f0bd45;
-    color:#173b23;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:30px;
-    transition:.3s;
-}
-
-.hero-btn:hover{
-    transform:translateY(-4px);
-    background:white;
-}
-
-
-/* ================= GENERAL SECTION ================= */
-
-section{
-    padding:100px 8%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.section-title h2{
-    font-size:38px;
-    color:#126b35;
-    margin-bottom:12px;
-}
-
-.section-title p{
-    color:#666;
-    font-size:17px;
-}
-
-
-/* ================= 4 PICTURES ================= */
-
-.gallery{
-    background:white;
-}
-
-.gallery-grid{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
-}
-
-.photo-card{
-    background:#f8faf8;
-    border-radius:20px;
-    overflow:hidden;
-    border:1px solid #e5e5e5;
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-    transition:.4s;
-}
-
-.photo-card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
-}
-
-.photo-card img{
-    width:100%;
-    height:300px;
-    object-fit:cover;
-    display:block;
-}
-
-.photo-info{
-    padding:20px;
-    text-align:center;
-}
-
-.photo-info h3{
-    color:#126b35;
-    font-size:23px;
-    margin-bottom:8px;
-}
-
-.photo-info p{
-    color:#666;
-    line-height:1.6;
-}
-
-
-/* ================= PRODUCTS ================= */
-
-.products{
-    background:#eef5ef;
-}
-
-.product-grid{
-    max-width:1100px;
-    margin:auto;
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.card{
-    background:white;
-    padding:35px 25px;
-    text-align:center;
-    border-radius:18px;
-    transition:.4s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 15px 30px rgba(0,0,0,.10);
-}
-
-.icon{
-    font-size:50px;
-    margin-bottom:20px;
-}
-
-.card h3{
-    color:#126b35;
-    font-size:23px;
-    margin-bottom:12px;
-}
-
-.card p{
-    color:#666;
-    line-height:1.7;
-}
-
-
-/* ================= ABOUT ================= */
-
-.about{
-    background:white;
-}
-
-.about-box{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-}
-
-.about-box h2{
-    color:#126b35;
-    font-size:38px;
-    margin-bottom:20px;
-}
-
-.about-box p{
-    font-size:18px;
-    line-height:2;
-    color:#555;
-}
-
-
-/* ================= CONTACT ================= */
-
-.contact{
-    background:#126b35;
-    color:white;
-    text-align:center;
-}
-
-.contact h2{
-    font-size:40px;
-    margin-bottom:20px;
-}
-
-.contact p{
-    font-size:18px;
-    line-height:1.8;
-    max-width:700px;
-    margin:auto;
-    color:#e8e8e8;
-}
-
-.contact-button{
-    display:inline-block;
-    margin-top:30px;
-    padding:14px 32px;
-    background:#f0bd45;
-    color:#173b23;
-    text-decoration:none;
-    font-weight:bold;
-    border-radius:30px;
-}
-
-
-/* ================= FOOTER ================= */
-
-footer{
-    background:#092d19;
-    color:white;
-    text-align:center;
-    padding:25px 15px;
-}
-
-footer p{
-    font-size:14px;
-    color:#ccc;
-}
-
-
-/* ================= SCROLL ANIMATION ================= */
-
-.reveal{
-    opacity:0;
-    transform:translateY(80px);
-    transition:all .9s ease;
-}
-
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
-}
-
-
-/* ================= MOBILE ================= */
-
-@media(max-width:768px){
-
-    header{
-        height:65px;
-        padding:0 5%;
-    }
-
-    .logo{
-        font-size:18px;
-    }
-
-    .logo-icon{
-        width:40px;
-        height:40px;
-        font-size:12px;
-    }
-
-    .menu-btn{
-        display:block;
-    }
-
-    .menu{
-        position:absolute;
-        top:65px;
-        right:5%;
-        width:180px;
-        background:white;
-        display:none;
-        flex-direction:column;
-        padding:10px;
-        border-radius:12px;
-        box-shadow:0 10px 30px rgba(0,0,0,.15);
-    }
-
-    .menu.show{
-        display:flex;
-    }
-
-    .menu a{
-        text-align:center;
-        padding:12px;
-    }
-
-    .hero{
-        padding:120px 6% 70px;
-    }
-
-    .hero h1{
-        font-size:42px;
-    }
-
-    .hero p{
-        font-size:17px;
-    }
-
-    section{
-        padding:75px 6%;
-    }
-
-    .section-title h2,
-    .about-box h2,
-    .contact h2{
-        font-size:30px;
-    }
-
-    .gallery-grid{
-        grid-template-columns:1fr;
-    }
-
-    .photo-card img{
-        height:240px;
-    }
-
-    .product-grid{
-        grid-template-columns:1fr;
-    }
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#101827;color:white;min-height:100vh}
+header{padding:22px 18px;background:#172438;position:sticky;top:0;z-index:5;border-bottom:1px solid #29384d}
+header h2{font-size:23px;color:#60a5fa}
+header p{font-size:12px;color:#aab8ca;margin-top:5px}
+.container{max-width:650px;margin:auto;padding:22px 16px}
+h3{margin-bottom:18px;font-size:20px}
+.subject{background:#1d2b40;padding:23px;border-radius:15px;margin-bottom:15px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:1px solid #30445f}
+.subject:active{transform:scale(.98)}
+.subject h3{margin:0;font-size:19px}
+.subject span{font-size:25px}
+.hidden{display:none}
+.back{background:#26374e;border:0;padding:10px 16px;color:white;border-radius:8px;margin-bottom:20px;cursor:pointer}
+.year-control{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:20px;background:#1d2b40;padding:15px;border-radius:12px}
+.year-control button{background:#3478e5;border:0;color:white;padding:9px 15px;border-radius:7px;font-size:17px;cursor:pointer}
+.month{background:#1d2b40;border:1px solid #30445f;padding:16px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:11px;gap:10px}
+.month h4{font-size:16px}
+.month small{display:block;color:#aab8ca;margin-top:7px;font-size:12px}
+.check{width:27px;height:27px;accent-color:#22c55e;cursor:pointer;flex-shrink:0}
+.paid{border-color:#22c55e;background:#18352f}
+.status{color:#4ade80;font-size:12px;margin-top:5px}
+.summary{background:#263b59;padding:16px;border-radius:12px;margin-bottom:18px;display:flex;justify-content:space-between}
+.tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
+.tools button{flex:1;min-width:130px;padding:13px;border:0;border-radius:9px;background:#3478e5;color:white;cursor:pointer;font-weight:bold}
+footer{text-align:center;color:#8493a8;padding:25px 10px;font-size:12px}
 </style>
 </head>
 
-
 <body>
 
-
-<!-- ================= HEADER ================= -->
-
 <header>
-
-    <div class="logo">
-
-        <div class="logo-icon">
-            SMT
-        </div>
-
-        <span>
-            সাদ মাল্টি ট্রেডার্স
-        </span>
-
-    </div>
-
-
-    <div class="menu-btn" onclick="toggleMenu()">
-        ☰
-    </div>
-
-
-    <nav class="menu" id="menu">
-
-        <a href="#home" onclick="closeMenu()">
-            Home
-        </a>
-
-        <a href="#contact" onclick="closeMenu()">
-            Contact
-        </a>
-
-        <a href="#about" onclick="closeMenu()">
-            About
-        </a>
-
-    </nav>
-
+<h2>SFS Tuition Tracker</h2>
+<p>Powered by Shahriar Foysal Sad</p>
 </header>
 
+<div class="container">
 
+<section id="home">
+<h3>My Subjects</h3>
 
-<!-- ================= HOME ================= -->
+<div class="subject" onclick="openSubject('English')">
+<h3>📘 English</h3><span>›</span>
+</div>
 
-<section class="hero" id="home">
+<div class="subject" onclick="openSubject('Chemistry')">
+<h3>🧪 Chemistry</h3><span>›</span>
+</div>
 
-    <div class="hero-content reveal">
+<div class="subject" onclick="openSubject('Math')">
+<h3>📐 Math</h3><span>›</span>
+</div>
 
-        <h1>
-            সাদ <span>মাল্টি ট্রেডার্স</span>
-        </h1>
-
-        <p>
-            মানসম্মত পণ্য, বিশ্বস্ত সেবা এবং
-            দীর্ঘমেয়াদি ব্যবসায়িক সম্পর্ক—
-            এই লক্ষ্যেই সাদ মাল্টি ট্রেডার্সের পথচলা।
-        </p>
-
-        <a href="#gallery" class="hero-btn">
-            আমাদের সম্পর্কে
-        </a>
-
-    </div>
-
+<div class="tools">
+<button onclick="backup()">⬇ Backup Data</button>
+<button onclick="document.getElementById('restoreFile').click()">Restore Data</button>
+<input type="file" id="restoreFile" accept=".json" hidden onchange="restore(event)">
+</div>
 </section>
 
+<section id="subjectPage" class="hidden">
 
+<button class="back" onclick="goHome()">← Back</button>
 
-<!-- ================= 4 PICTURES ================= -->
+<h3 id="subjectTitle"></h3>
 
-<section class="gallery" id="gallery">
+<div class="year-control">
+<button onclick="changeYear(-1)">−</button>
+<strong id="yearText"></strong>
+<button onclick="changeYear(1)">+</button>
+</div>
 
-    <div class="section-title reveal">
+<div class="summary">
+<span>Paid Months</span>
+<strong id="paidCount">0 / 12</strong>
+</div>
 
-        <h2>
-            আমাদের গ্যালারি
-        </h2>
-
-        <p>
-            সাদ মাল্টি ট্রেডার্সের কিছু ছবি
-        </p>
-
-    </div>
-
-
-    <div class="gallery-grid">
-
-
-        <!-- PHOTO 1 -->
-
-        <div class="photo-card reveal">
-
-            <img src="e7a4ba83-b2f1-4d31-9802-4b9bec9093af.jpg"
-                 alt="সাদ মাল্টি ট্রেডার্স ছবি ১">
-
-            <div class="photo-info">
-
-                <h3>
-                    আমাদের পণ্য
-                </h3>
-
-                <p>
-                    মানসম্মত পণ্য সরবরাহে
-                    আমরা প্রতিশ্রুতিবদ্ধ।
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- PHOTO 2 -->
-
-        <div class="photo-card reveal">
-
-            <img src="9dad4df3-9139-42d7-9626-787147d44911.jpg"
-                 alt="সাদ মাল্টি ট্রেডার্স ছবি ২">
-
-            <div class="photo-info">
-
-                <h3>
-                    মানসম্মত সেবা
-                </h3>
-
-                <p>
-                    ক্রেতার সন্তুষ্টিকে আমরা
-                    সর্বোচ্চ গুরুত্ব দিই।
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- PHOTO 3 -->
-
-        <div class="photo-card reveal">
-
-            <img src="071d134b-6bd9-46a0-ae03-6d4d2460f2bd.jpg"
-                 alt="সাদ মাল্টি ট্রেডার্স ছবি ৩">
-
-            <div class="photo-info">
-
-                <h3>
-                    ব্যবসায়িক কার্যক্রম
-                </h3>
-
-                <p>
-                    বিশ্বস্ততার সাথে আমাদের
-                    ব্যবসায়িক কার্যক্রম পরিচালিত হয়।
-                </p>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- PHOTO 4 -->
-
-        <div class="photo-card reveal">
-
-            <img src="9b863d2f-c212-47b4-846b-a5f9ef397bda.jpg"
-                 alt="সাদ মাল্টি ট্রেডার্স ছবি ৪">
-
-            <div class="photo-info">
-
-                <h3>
-                    বিশ্বস্ত সহযোগিতা
-                </h3>
-
-                <p>
-                    দীর্ঘমেয়াদি ব্যবসায়িক সম্পর্ক
-                    গড়ে তোলাই আমাদের লক্ষ্য।
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
+<div id="months"></div>
 
 </section>
-
-
-
-<!-- ================= PRODUCTS ================= -->
-
-<section class="products">
-
-    <div class="section-title reveal">
-
-        <h2>
-            আমাদের পণ্য
-        </h2>
-
-        <p>
-            প্রয়োজন অনুযায়ী মানসম্মত পণ্য
-            সরবরাহে আমরা যত্নশীল।
-        </p>
-
-    </div>
-
-
-    <div class="product-grid">
-
-
-        <div class="card reveal">
-
-            <div class="icon">
-                🌿
-            </div>
-
-            <h3>
-                সুপারি
-            </h3>
-
-            <p>
-                বাছাইকৃত ও মানসম্মত সুপারি
-                সরবরাহের প্রতি আমরা গুরুত্ব দিই।
-            </p>
-
-        </div>
-
-
-
-        <div class="card reveal">
-
-            <div class="icon">
-                🍃
-            </div>
-
-            <h3>
-                পানের মসলা
-            </h3>
-
-            <p>
-                পানের মসলা ও প্রয়োজনীয়
-                উপকরণ সরবরাহ করা হয়।
-            </p>
-
-        </div>
-
-
-
-        <div class="card reveal">
-
-            <div class="icon">
-                📦
-            </div>
-
-            <h3>
-                পাইকারি সরবরাহ
-            </h3>
-
-            <p>
-                ব্যবসায়ীদের প্রয়োজন অনুযায়ী
-                পণ্য সরবরাহের ব্যবস্থা।
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= ABOUT ================= -->
-
-<section class="about" id="about">
-
-    <div class="about-box reveal">
-
-        <h2>
-            সাদ মাল্টি ট্রেডার্স সম্পর্কে
-        </h2>
-
-        <p>
-            সাদ মাল্টি ট্রেডার্স একটি ব্যবসায়িক
-            প্রতিষ্ঠান। মানসম্মত পণ্য, ন্যায্য মূল্য
-            এবং বিশ্বস্ত সেবার মাধ্যমে ক্রেতাদের
-            আস্থা অর্জন করাই আমাদের লক্ষ্য।
-        </p>
-
-        <br>
-
-        <p>
-            সততা, গুণমান ও দায়িত্বশীলতার সাথে
-            আমরা আমাদের ব্যবসায়িক কার্যক্রম
-            পরিচালনা করতে চাই।
-        </p>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= CONTACT ================= -->
-
-<section class="contact" id="contact">
-
-    <div class="reveal">
-
-        <h2>
-            যোগাযোগ করুন
-        </h2>
-
-        <p>
-            সাদ মাল্টি ট্রেডার্সের পণ্য বা ব্যবসায়িক
-            যোগাযোগ সম্পর্কে জানতে আমাদের সাথে
-            যোগাযোগ করুন।
-        </p>
-
-        <a href="tel:+8801723277322"
-           class="contact-button">
-            Contact Us
-        </a>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= FOOTER ================= -->
+</div>
 
 <footer>
-
-    <p>
-        © 2026 সাদ মাল্টি ট্রেডার্স — All Rights Reserved.
-    </p>
-
+SFS Tuition Tracker © 2026<br>
+Your Tuition Payment Record
 </footer>
-
-
 
 <script>
 
-/* ================= MENU ================= */
+const monthNames=[
+"January","February","March","April",
+"May","June","July","August",
+"September","October","November","December"
+];
 
-function toggleMenu(){
+let currentSubject="";
+let currentYear=new Date().getFullYear();
+let records={};
 
-    document
-    .getElementById("menu")
-    .classList
-    .toggle("show");
+function loadData(){
+try{
+records=JSON.parse(localStorage.getItem("sfsTuitionRecords"))||{};
+}catch(e){
+records={};
+}
+}
+
+function saveData(){
+try{
+localStorage.setItem("sfsTuitionRecords",JSON.stringify(records));
+}catch(e){
+alert("Storage unavailable! Please make a backup.");
+}
+}
+
+function openSubject(subject){
+currentSubject=subject;
+document.getElementById("home").classList.add("hidden");
+document.getElementById("subjectPage").classList.remove("hidden");
+document.getElementById("subjectTitle").innerText="📚 "+subject;
+renderMonths();
+}
+
+function goHome(){
+document.getElementById("subjectPage").classList.add("hidden");
+document.getElementById("home").classList.remove("hidden");
+}
+
+function changeYear(amount){
+currentYear+=amount;
+renderMonths();
+}
+
+function renderMonths(){
+
+document.getElementById("yearText").innerText=currentYear;
+
+let html="";
+let paid=0;
+
+monthNames.forEach((month,index)=>{
+
+let key=currentSubject+"_"+currentYear+"_"+index;
+let data=records[key];
+let isPaid=!!data;
+
+if(isPaid)paid++;
+
+html+=`
+<div class="month ${isPaid?'paid':''}">
+<div>
+<h4>${month}</h4>
+${
+isPaid
+? `<div class="status">✓ Paid
+<small>Payment Date: ${data.date}</small></div>`
+: `<small>Not Paid Yet</small>`
+}
+</div>
+
+<input class="check"
+type="checkbox"
+${isPaid?"checked":""}
+onchange="togglePayment(${index},this.checked)">
+</div>
+`;
+
+});
+
+document.getElementById("months").innerHTML=html;
+document.getElementById("paidCount").innerText=paid+" / 12";
 
 }
 
 
-function closeMenu(){
+// TICK / UNTICK SAVE SYSTEM
 
-    document
-    .getElementById("menu")
-    .classList
-    .remove("show");
+function togglePayment(index,checked){
+
+let key=currentSubject+"_"+currentYear+"_"+index;
+
+if(checked){
+
+let now=new Date();
+
+records[key]={
+subject:currentSubject,
+year:currentYear,
+month:monthNames[index],
+date:now.toLocaleDateString("en-GB"),
+paid:true
+};
+
+}else{
+
+// Untick korle oi month er record delete hobe
+delete records[key];
+
+}
+
+saveData();
+renderMonths();
 
 }
 
 
-/* ================= SCROLL ANIMATION ================= */
+// BACKUP
 
-const reveals =
-document.querySelectorAll(".reveal");
+function backup(){
 
+let data=JSON.stringify(records,null,2);
 
-function revealOnScroll(){
+let blob=new Blob([data],{type:"application/json"});
+let url=URL.createObjectURL(blob);
 
-    const windowHeight =
-    window.innerHeight;
+let a=document.createElement("a");
+a.href=url;
+a.download="SFS-Tuition-Backup.json";
+a.click();
 
-
-    reveals.forEach(function(element){
-
-        const elementTop =
-        element.getBoundingClientRect().top;
-
-
-        if(elementTop < windowHeight - 100){
-
-            element.classList.add("active");
-
-        }
-
-    });
+URL.revokeObjectURL(url);
 
 }
 
 
-window.addEventListener(
-    "scroll",
-    revealOnScroll
-);
+// RESTORE
 
+function restore(event){
 
-revealOnScroll();
+let file=event.target.files[0];
+if(!file)return;
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+try{
+
+let imported=JSON.parse(e.target.result);
+
+if(!imported || typeof imported!=="object" || Array.isArray(imported)){
+throw new Error("Invalid backup");
+}
+
+if(!confirm("Restore this backup? Existing records will be replaced.")){
+return;
+}
+
+records=imported;
+saveData();
+
+alert("Backup restored successfully!");
+renderMonths();
+
+}catch(err){
+alert("Invalid backup file!");
+}
+
+event.target.value="";
+
+};
+
+reader.readAsText(file);
+
+}
+
+loadData();
 
 </script>
-
 
 </body>
 </html>
