@@ -5,34 +5,196 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#101827">
-<title>SFS Tuition Tracker</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tuition Tracker">
+
+<title>Tuition Tracker</title>
+
+<link rel="icon" id="favicon" type="image/svg+xml">
+<link rel="apple-touch-icon" id="appleIcon">
+<link rel="manifest" id="manifest">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#101827;color:white;min-height:100vh}
-header{padding:22px 18px;background:#172438;position:sticky;top:0;z-index:5;border-bottom:1px solid #29384d}
-header h2{font-size:23px;color:#60a5fa}
-header p{font-size:12px;color:#aab8ca;margin-top:5px}
-.container{max-width:650px;margin:auto;padding:22px 16px}
-h3{margin-bottom:18px;font-size:20px}
-.subject{background:#1d2b40;padding:23px;border-radius:15px;margin-bottom:15px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:1px solid #30445f}
-.subject:active{transform:scale(.98)}
-.subject h3{margin:0;font-size:19px}
-.subject span{font-size:25px}
-.hidden{display:none}
-.back{background:#26374e;border:0;padding:10px 16px;color:white;border-radius:8px;margin-bottom:20px;cursor:pointer}
-.year-control{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-bottom:20px;background:#1d2b40;padding:15px;border-radius:12px}
-.year-control button{background:#3478e5;border:0;color:white;padding:9px 15px;border-radius:7px;font-size:17px;cursor:pointer}
-.month{background:#1d2b40;border:1px solid #30445f;padding:16px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;margin-bottom:11px;gap:10px}
-.month h4{font-size:16px}
-.month small{display:block;color:#aab8ca;margin-top:7px;font-size:12px}
-.check{width:27px;height:27px;accent-color:#22c55e;cursor:pointer;flex-shrink:0}
-.paid{border-color:#22c55e;background:#18352f}
-.status{color:#4ade80;font-size:12px;margin-top:5px}
-.summary{background:#263b59;padding:16px;border-radius:12px;margin-bottom:18px;display:flex;justify-content:space-between}
-.tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:25px}
-.tools button{flex:1;min-width:130px;padding:13px;border:0;border-radius:9px;background:#3478e5;color:white;cursor:pointer;font-weight:bold}
-footer{text-align:center;color:#8493a8;padding:25px 10px;font-size:12px}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#101827;
+  color:white;
+  min-height:100vh;
+}
+
+header{
+  padding:22px 18px;
+  background:#172438;
+  position:sticky;
+  top:0;
+  z-index:5;
+  border-bottom:1px solid #29384d;
+}
+
+header h2{
+  font-size:23px;
+  color:#60a5fa;
+}
+
+header p{
+  font-size:12px;
+  color:#aab8ca;
+  margin-top:5px;
+}
+
+.container{
+  max-width:650px;
+  margin:auto;
+  padding:22px 16px;
+}
+
+h3{
+  margin-bottom:18px;
+  font-size:20px;
+}
+
+.subject{
+  background:#1d2b40;
+  padding:23px;
+  border-radius:15px;
+  margin-bottom:15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  cursor:pointer;
+  border:1px solid #30445f;
+}
+
+.subject:active{
+  transform:scale(.98);
+}
+
+.subject h3{
+  margin:0;
+  font-size:19px;
+}
+
+.subject span{
+  font-size:25px;
+}
+
+.hidden{
+  display:none;
+}
+
+.back{
+  background:#26374e;
+  border:0;
+  padding:10px 16px;
+  color:white;
+  border-radius:8px;
+  margin-bottom:20px;
+  cursor:pointer;
+}
+
+.year-control{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:20px;
+  background:#1d2b40;
+  padding:15px;
+  border-radius:12px;
+}
+
+.year-control button{
+  background:#3478e5;
+  border:0;
+  color:white;
+  padding:9px 15px;
+  border-radius:7px;
+  font-size:17px;
+  cursor:pointer;
+}
+
+.month{
+  background:#1d2b40;
+  border:1px solid #30445f;
+  padding:16px;
+  border-radius:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:11px;
+  gap:10px;
+}
+
+.month h4{
+  font-size:16px;
+}
+
+.month small{
+  display:block;
+  color:#aab8ca;
+  margin-top:7px;
+  font-size:12px;
+}
+
+.check{
+  width:27px;
+  height:27px;
+  accent-color:#22c55e;
+  cursor:pointer;
+  flex-shrink:0;
+}
+
+.paid{
+  border-color:#22c55e;
+  background:#18352f;
+}
+
+.status{
+  color:#4ade80;
+  font-size:12px;
+  margin-top:5px;
+}
+
+.summary{
+  background:#263b59;
+  padding:16px;
+  border-radius:12px;
+  margin-bottom:18px;
+  display:flex;
+  justify-content:space-between;
+}
+
+.tools{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+
+.tools button{
+  flex:1;
+  min-width:130px;
+  padding:13px;
+  border:0;
+  border-radius:9px;
+  background:#3478e5;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+footer{
+  text-align:center;
+  color:#8493a8;
+  padding:25px 10px;
+  font-size:12px;
+}
 </style>
 </head>
 
@@ -46,26 +208,42 @@ footer{text-align:center;color:#8493a8;padding:25px 10px;font-size:12px}
 <div class="container">
 
 <section id="home">
+
 <h3>My Subjects</h3>
 
 <div class="subject" onclick="openSubject('English')">
-<h3>📘 English</h3><span>›</span>
+<h3>📘 English</h3>
+<span>›</span>
 </div>
 
 <div class="subject" onclick="openSubject('Chemistry')">
-<h3>🧪 Chemistry</h3><span>›</span>
+<h3>🧪 Chemistry</h3>
+<span>›</span>
 </div>
 
 <div class="subject" onclick="openSubject('Math')">
-<h3>📐 Math</h3><span>›</span>
+<h3>📐 Math</h3>
+<span>›</span>
 </div>
 
 <div class="tools">
+
 <button onclick="backup()">⬇ Backup Data</button>
-<button onclick="document.getElementById('restoreFile').click()">Restore Data</button>
-<input type="file" id="restoreFile" accept=".json" hidden onchange="restore(event)">
+
+<button onclick="document.getElementById('restoreFile').click()">
+Restore Data
+</button>
+
+<input type="file"
+id="restoreFile"
+accept=".json"
+hidden
+onchange="restore(event)">
+
 </div>
+
 </section>
+
 
 <section id="subjectPage" class="hidden">
 
@@ -74,9 +252,13 @@ footer{text-align:center;color:#8493a8;padding:25px 10px;font-size:12px}
 <h3 id="subjectTitle"></h3>
 
 <div class="year-control">
+
 <button onclick="changeYear(-1)">−</button>
+
 <strong id="yearText"></strong>
+
 <button onclick="changeYear(1)">+</button>
+
 </div>
 
 <div class="summary">
@@ -87,6 +269,7 @@ footer{text-align:center;color:#8493a8;padding:25px 10px;font-size:12px}
 <div id="months"></div>
 
 </section>
+
 </div>
 
 <footer>
@@ -94,7 +277,95 @@ SFS Tuition Tracker © 2026<br>
 Your Tuition Payment Record
 </footer>
 
+
 <script>
+
+/* =================================
+   TUITION TRACKER T LOGO
+================================= */
+
+const logoSVG = `
+<svg xmlns="http://www.w3.org/2000/svg"
+width="512" height="512" viewBox="0 0 512 512">
+
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#2563eb"/>
+<stop offset="100%" stop-color="#101827"/>
+</linearGradient>
+</defs>
+
+<rect width="512" height="512" rx="110" fill="url(#bg)"/>
+
+<rect x="32" y="32" width="448" height="448"
+rx="90" fill="none"
+stroke="#ffffff"
+stroke-opacity=".22"
+stroke-width="8"/>
+
+<text x="256" y="265"
+font-family="Arial,sans-serif"
+font-size="270"
+font-weight="bold"
+fill="white"
+text-anchor="middle"
+dominant-baseline="middle">T</text>
+
+<text x="256" y="405"
+font-family="Arial,sans-serif"
+font-size="36"
+font-weight="bold"
+fill="#bfdbfe"
+text-anchor="middle">TUITION</text>
+
+</svg>
+`;
+
+const logoURL =
+"data:image/svg+xml;charset=utf-8,"+
+encodeURIComponent(logoSVG);
+
+document.getElementById("favicon").href=logoURL;
+document.getElementById("appleIcon").href=logoURL;
+
+
+/* APP MANIFEST */
+
+const manifest={
+name:"SFS Tuition Tracker",
+short_name:"Tuition Tracker",
+description:"Tuition Payment Tracker",
+start_url:".",
+display:"standalone",
+background_color:"#101827",
+theme_color:"#101827",
+icons:[
+{
+src:logoURL,
+sizes:"192x192",
+type:"image/svg+xml"
+},
+{
+src:logoURL,
+sizes:"512x512",
+type:"image/svg+xml",
+purpose:"any maskable"
+}
+]
+};
+
+const manifestBlob=new Blob(
+[JSON.stringify(manifest)],
+{type:"application/manifest+json"}
+);
+
+document.getElementById("manifest").href=
+URL.createObjectURL(manifestBlob);
+
+
+/* =================================
+   TUITION TRACKER
+================================= */
 
 const monthNames=[
 "January","February","March","April",
@@ -106,123 +377,191 @@ let currentSubject="";
 let currentYear=new Date().getFullYear();
 let records={};
 
+
 function loadData(){
+
 try{
-records=JSON.parse(localStorage.getItem("sfsTuitionRecords"))||{};
+
+records=JSON.parse(
+localStorage.getItem("sfsTuitionRecords")
+)||{};
+
 }catch(e){
+
 records={};
+
 }
+
 }
+
 
 function saveData(){
+
 try{
-localStorage.setItem("sfsTuitionRecords",JSON.stringify(records));
+
+localStorage.setItem(
+"sfsTuitionRecords",
+JSON.stringify(records)
+);
+
 }catch(e){
+
 alert("Storage unavailable! Please make a backup.");
+
 }
+
 }
+
 
 function openSubject(subject){
+
 currentSubject=subject;
-document.getElementById("home").classList.add("hidden");
-document.getElementById("subjectPage").classList.remove("hidden");
-document.getElementById("subjectTitle").innerText="📚 "+subject;
+
+document.getElementById("home")
+.classList.add("hidden");
+
+document.getElementById("subjectPage")
+.classList.remove("hidden");
+
+document.getElementById("subjectTitle")
+.innerText="📚 "+subject;
+
 renderMonths();
+
 }
+
 
 function goHome(){
-document.getElementById("subjectPage").classList.add("hidden");
-document.getElementById("home").classList.remove("hidden");
+
+document.getElementById("subjectPage")
+.classList.add("hidden");
+
+document.getElementById("home")
+.classList.remove("hidden");
+
 }
 
+
 function changeYear(amount){
+
 currentYear+=amount;
+
 renderMonths();
+
 }
+
+
+/* MONTHS */
 
 function renderMonths(){
 
-document.getElementById("yearText").innerText=currentYear;
+document.getElementById("yearText")
+.innerText=currentYear;
 
 let html="";
 let paid=0;
 
 monthNames.forEach((month,index)=>{
 
-let key=currentSubject+"_"+currentYear+"_"+index;
+let key=
+currentSubject+"_"+currentYear+"_"+index;
+
 let data=records[key];
+
 let isPaid=!!data;
 
 if(isPaid)paid++;
 
 html+=`
+
 <div class="month ${isPaid?'paid':''}">
+
 <div>
+
 <h4>${month}</h4>
+
 ${
 isPaid
-? `<div class="status">✓ Paid
-<small>Payment Date: ${data.date}</small></div>`
-: `<small>Not Paid Yet</small>`
+?
+`<div class="status">
+✓ Paid
+<small>Payment Date: ${data.date}</small>
+</div>`
+:
+`<small>Not Paid Yet</small>`
 }
+
 </div>
 
-<input class="check"
+<input
+class="check"
 type="checkbox"
 ${isPaid?"checked":""}
 onchange="togglePayment(${index},this.checked)">
+
 </div>
+
 `;
 
 });
 
 document.getElementById("months").innerHTML=html;
-document.getElementById("paidCount").innerText=paid+" / 12";
+
+document.getElementById("paidCount")
+.innerText=paid+" / 12";
 
 }
 
 
-// TICK / UNTICK SAVE SYSTEM
+/* TICK / UNTICK */
 
 function togglePayment(index,checked){
 
-let key=currentSubject+"_"+currentYear+"_"+index;
+let key=
+currentSubject+"_"+currentYear+"_"+index;
 
 if(checked){
 
 let now=new Date();
 
 records[key]={
+
 subject:currentSubject,
 year:currentYear,
 month:monthNames[index],
 date:now.toLocaleDateString("en-GB"),
 paid:true
+
 };
 
 }else{
 
-// Untick korle oi month er record delete hobe
 delete records[key];
 
 }
 
 saveData();
+
 renderMonths();
 
 }
 
 
-// BACKUP
+/* BACKUP */
 
 function backup(){
 
 let data=JSON.stringify(records,null,2);
 
-let blob=new Blob([data],{type:"application/json"});
+let blob=new Blob(
+[data],
+{type:"application/json"}
+);
+
 let url=URL.createObjectURL(blob);
 
 let a=document.createElement("a");
+
 a.href=url;
 a.download="SFS-Tuition-Backup.json";
 a.click();
@@ -232,11 +571,12 @@ URL.revokeObjectURL(url);
 }
 
 
-// RESTORE
+/* RESTORE */
 
 function restore(event){
 
 let file=event.target.files[0];
+
 if(!file)return;
 
 let reader=new FileReader();
@@ -247,22 +587,36 @@ try{
 
 let imported=JSON.parse(e.target.result);
 
-if(!imported || typeof imported!=="object" || Array.isArray(imported)){
+if(
+!imported ||
+typeof imported!=="object" ||
+Array.isArray(imported)
+){
+
 throw new Error("Invalid backup");
+
 }
 
-if(!confirm("Restore this backup? Existing records will be replaced.")){
+if(!confirm(
+"Restore this backup? Existing records will be replaced."
+)){
+
 return;
+
 }
 
 records=imported;
+
 saveData();
 
 alert("Backup restored successfully!");
+
 renderMonths();
 
 }catch(err){
+
 alert("Invalid backup file!");
+
 }
 
 event.target.value="";
@@ -272,6 +626,9 @@ event.target.value="";
 reader.readAsText(file);
 
 }
+
+
+/* START */
 
 loadData();
 
